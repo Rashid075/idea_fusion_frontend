@@ -1,5 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Fragment, useState, useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
+import { Outlet, Link } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
@@ -51,9 +53,9 @@ export default function Navbar() {
               <div className="hidden sm:block sm:ml-6">
                 <div className="flex space-x-4">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className={classNames(
                         item.current
                           ? "bg-gray-900 text-white"
@@ -63,7 +65,7 @@ export default function Navbar() {
                       aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
